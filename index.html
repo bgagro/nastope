@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href=""> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@600&family=Raleway:wght@200;300;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    button,
+    img,
+    p {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .hero-bg {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .vw-full {
+      width: 100vw;
+    }
+
+    .vh-full {
+      height: 100vh;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .o-hidden {
+      overflow: hidden;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .z-5 {
+      z-index: -5;
+    }
+
+    .z-4 {
+      z-index: -4;
+    }
+
+    .top-0 {
+      top: 0;
+    }
+
+    .w-border-5 {
+      border: 12px solid white;
+      box-sizing: border-box;
+
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .space-between {
+      justify-content: space-between;
+    }
+
+    .justify-content-c {
+      justify-content: center;
+    }
+
+    .align-content-c {
+      align-content: center;
+      flex-wrap: wrap;
+    }
+
+    .min-w {
+      min-width: 320px;
+    }
+
+    .max-w {
+      max-width: 1440px;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .button {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      letter-spacing: 2px;
+
+      color: rgba(255, 255, 255, 0.75);
+      border: solid 0.6px rgba(255, 255, 255, 0.75);
+
+      padding: 7px 10px;
+    }
+
+    .logo {
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      font-size: 96px;
+      word-spacing: 5px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .logo {
+        font-size: 70px;
+      }
+
+      .button {
+        font-size: 15px;
+      }
+
+      .scale-down-20 {
+        transform: scale(0.8);
+      }
+    }
+
+    @media only screen and (max-width: 424px) {
+      .logo {
+        font-size: 50px;
+      }
+
+      .button {
+        font-size: 12px;
+      }
+
+      .scale-down-20 {
+        transform: scale(0.6);
+      }
+    }
+
+    .block {
+      display: block;
+    }
+
+    .text-l {
+      font-family: Lora;
+      font-weight: 600;
+      font-size: 15px;
+
+      text-align: center;
+      letter-spacing: 2.5px;
+      line-height: 25px;
+
+      color: #3F3735;
+    }
+
+    .border-black {
+      border: solid black 1px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="min-w">
+
+    <div class="vw-full vh-full absolute">
+      <div class="hero-bg vw-full vh-full o-hidden absolute z-5 top-0 min-w"
+        style="background-image: url(images/background-living-room.jpg);">
+      </div>
+      <div class="hero-bg vw-full vh-full o-hidden absolute z-4 top-0 w-border-5 min-w"
+        style="background-image: url(images/dark-overlay.svg);"></div>
+    </div>
+
+    <div class="max-w mx-auto vh-full">
+      <header class="flex space-between" style="padding-top: 50px;">
+        <img class="scale-down-20" src="images/hamburger.svg" alt="" style="margin-left: 38px;">
+        <Button class="button" style="margin-right: 38px;">Book now</Button>
+      </header>
+      <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
+        <p class="logo" style="margin-bottom: 150px;">NA STOPE</p>
+      </div>
+      <img class="relative block mx-auto scale-down-20" src="images/down-pointer.svg" alt="" style="top: -120px;">
+    </div>
+
+    <div class="max-w mx-auto">
+      <section class="flex justify-content-c align-content-c"
+        style="height: 30vw; max-height: 400px;">
+        <p class="text-l border-black" style="max-width: 480px;">Nestled in the picturesque Ore Mountains, <span style="color: #87674f;">NaStope</span> invites you to experience
+          the serenity and beauty of this enchanting region.</p>
+      </section>
+      <section>
+        Heyy
+        <br>
+        <br>
+        heyy
+      </section>
+    </div>
+
+
+    <br>
+    <br>
+    <p>TEST</p>
+    <br>
+    <br>
+    <p>TEST</p>
+  </div>
+
+  <!-- <script src="" async defer></script> -->
+</body>
+
+</html>
