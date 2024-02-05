@@ -84,6 +84,10 @@
       z-index: -4;
     }
 
+    .z-0 {
+      z-index: 0;
+    }
+
     .top-0 {
       top: 0;
     }
@@ -143,6 +147,13 @@
       word-spacing: 5px;
     }
 
+    @media only screen and (min-width: 1441px) {
+      .text-l {
+        font-size: 30px;
+        width: 1335px;
+      }
+    }
+
     @media only screen and (max-width: 768px) {
       .logo {
         font-size: 70px;
@@ -154,6 +165,16 @@
 
       .scale-down-20 {
         transform: scale(0.8);
+      }
+
+      body .burger {
+        width: 28px;
+      }
+
+      body .burger::before,
+      body .burger::after {
+        height: 0.1px;
+        opacity: 1;
       }
     }
 
@@ -179,18 +200,86 @@
       font-family: Lora;
       font-weight: 500;
       /* font-size: 30px; */
-      font-size: 2vw;
+      font-size: calc(5px + 1.73vw);
 
       text-align: center;
       letter-spacing: 3px;
       line-height: 4vw;
 
-      /* color: #3F3735; */
-      color: white;
+      color: #3F3735;
     }
 
     .border-black {
       border: solid black 1px;
+    }
+
+    @keyframes downPointer {
+
+      0%,
+      100% {
+        top: 6%
+      }
+
+      50% {
+        top: 50%
+      }
+    }
+
+    .down-pointer {
+      height: 50px;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .down-pointer::before {
+      content: "";
+      background: rgb(255, 255, 255);
+      position: absolute;
+
+      top: 0;
+
+      width: 100%;
+      height: 45%;
+
+      animation: downPointer 3s ease 0s infinite normal forwards;
+    }
+
+    .burger {
+      cursor: pointer;
+      display: flex;
+      width: 37px;
+      height: 20px;
+
+      padding-top: 10px;
+    }
+
+    .burger::before,
+    .burger::after {
+      content: "";
+      width: inherit;
+      height: 0.75px;
+      position: absolute;
+      background-color: rgb(255, 255, 255);
+      opacity: 0.85;
+
+      transition: all 250ms ease-out;
+      will-change: transform;
+    }
+
+    .burger::before {
+      transform: translateY(-6.5px);
+    }
+
+    .burger::after {
+      transform: translateY(5.4px);
+    }
+
+    .active.burger:before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    .active.burger:after {
+      transform: translateY(0) rotate(-45deg);
     }
   </style>
 </head>
@@ -207,20 +296,20 @@
     </div>
 
     <div class="max-w mx-auto svh-full">
-      <header class="flex space-between" style="padding-top: 50px;">
-        <img class="scale-down-20" src="images/hamburger.svg" alt="" style="margin-left: 38px;">
-        <Button class="button" style="margin-right: 38px;">Book now</Button>
+      <header class="flex space-between" style="padding-top: 50px; align-items: center;">
+        <button class="burger z-0" onclick="this.classList.toggle('active');" style="margin-left: 38px;"></button>
+        <button class="button" style="margin-right: 38px;">Book now</button>
       </header>
       <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
         <p class="logo" style="margin-bottom: 150px;">NA STOPE</p>
       </div>
-      <img class="relative block mx-auto scale-down-20" src="images/down-pointer.svg" alt="" style="top: -120px;">
+      <div class="down-pointer relative mx-auto" style="top: -120px;"></div>
     </div>
 
     <div class="max-w mx-auto">
       <section class="flex justify-content-c align-content-c" style="height: 30vw; max-height: 400px;">
-        <p class="text-l" style="max-width: 845px;">Nestled in the picturesque Ore Mountains, <span
-            style="color: #87674f;">NaStope</span> invites you to experience
+        <p class="text-l" style="">Nestled in the picturesque Ore Mountains, <span
+            style="color: #87674f; max-width: 845px;">NaStope</span> invites you to experience
           the serenity and beauty of this enchanting region.</p>
       </section>
     </div>
