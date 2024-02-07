@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@400;500;600&family=Raleway:wght@200;300;600&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"
+  >
 
   <style>
     html {
@@ -43,11 +44,63 @@
       opacity: 70%;
     }
 
+    /* 
+    ==========================================================================
+      Media queries
+    ========================================================================== 
+    */
 
+    @media only screen and (min-width: 1441px) {}
 
+    @media only screen and (max-width: 768px) {
+      body .logo-l {
+        font-size: 70px;
+        padding-top: 20px;
+      }
 
+      .button-l {
+        font-size: 15px;
+      }
 
+      .down-pointer {
+        top: -70px;
+      }
 
+      .scale-down-20 {
+        transform: scale(0.8);
+      }
+
+      body .burger {
+        width: 28px;
+      }
+
+      body .burger::before,
+      body .burger::after {
+        height: 0.1px;
+        opacity: 1;
+      }
+    }
+
+    @media only screen and (max-width: 420px) {
+      body .logo-l {
+        font-size: 50px;
+        padding-top: 30px;
+      }
+
+      .button-l {
+        font-size: 12px;
+      }
+
+      .scale-down-20 {
+        transform: scale(0.6);
+      }
+    }
+
+    /* 
+    ==========================================================================
+      Atomic values
+    ========================================================================== 
+    */
 
     .svw-full {
       width: 100svw;
@@ -155,6 +208,16 @@
       font-weight: 600;
     }
 
+    .opacity-75 {
+      opacity: 75%;
+    }
+
+    /* 
+    ==========================================================================
+      Colors
+    ========================================================================== 
+    */
+
     .c-white {
       color: white;
     }
@@ -171,9 +234,11 @@
       border-color: white;
     }
 
-    .opacity-75 {
-      opacity: 75%;
-    }
+    /* 
+    ==========================================================================
+      Components
+    ========================================================================== 
+    */
 
     .hero-bg {
       background-position: center;
@@ -209,7 +274,7 @@
     }
 
 
-    /* Down pointer */
+    /* ### Down pointer ### */
 
     .down-pointer {
       height: 50px;
@@ -243,7 +308,7 @@
       }
     }
 
-    /* Burger */
+    /* ### Burger ### */
 
     .burger {
       cursor: pointer;
@@ -301,65 +366,6 @@
       padding-left: 100px;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @media only screen and (min-width: 1441px) {}
-
-    @media only screen and (max-width: 768px) {
-      body .logo-l {
-        font-size: 70px;
-        padding-top: 20px;
-      }
-
-      .button-l {
-        font-size: 15px;
-      }
-
-      .down-pointer {
-        top: -70px;
-      }
-
-      .scale-down-20 {
-        transform: scale(0.8);
-      }
-
-      body .burger {
-        width: 28px;
-      }
-
-      body .burger::before,
-      body .burger::after {
-        height: 0.1px;
-        opacity: 1;
-      }
-    }
-
-    @media only screen and (max-width: 420px) {
-      body .logo-l {
-        font-size: 50px;
-        padding-top: 30px;
-      }
-
-      .button-l {
-        font-size: 12px;
-      }
-
-      .scale-down-20 {
-        transform: scale(0.6);
-      }
-    }
   </style>
 </head>
 
@@ -376,7 +382,7 @@
 
     <div class="max-w mx-auto svh-full">
       <header class="flex space-between" style="padding-top: 50px; align-items: center;">
-        <button class="burger z-0" onclick="this.classList.toggle('active');" style="margin-left: 38px;"></button>
+        <button class="burger z-0" onclick="this.classList.toggle('active');" ontouchstart="this.toggle('active');" style="margin-left: 38px;"></button>
         <!-- <nav class="nav">
           <a href="">Home</a>
           <a href="">Experiences</a>
