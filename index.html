@@ -16,157 +16,36 @@
     rel="stylesheet">
 
   <style>
-    body,
     html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      font-size: 16px;
+    }
+
+    body,
+    p {
       margin: 0;
       padding: 0;
     }
 
-    p {
-      margin: 0;
-    }
-
-    button,
-    img,
-    p {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      outline: 0;
-      font-size: 100%;
-      vertical-align: baseline;
+    button {
       background: transparent;
+      border-style: none;
     }
 
     a {
       text-decoration: none;
-      /* Removes underline */
-      color: inherit;
-      /* Inherits color from parent */
       cursor: pointer;
-      /* Default cursor for links */
     }
 
     a:hover {
       opacity: 70%;
     }
 
-    body {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
 
-    .hero-bg {
-      background-position: center;
-      background-size: cover;
-    }
 
-    .svw-full {
-      width: 100svw;
-    }
-
-    .svh-full {
-      height: 100svh;
-    }
-
-    .w-full {
-      width: 100%;
-    }
-
-    .h-full {
-      height: 100%;
-    }
-
-    .o-hidden {
-      overflow: hidden;
-    }
-
-    .absolute {
-      position: absolute;
-    }
-
-    .relative {
-      position: relative;
-    }
-
-    .z-5 {
-      z-index: -5;
-    }
-
-    .z-4 {
-      z-index: -4;
-    }
-
-    .z-0 {
-      z-index: 0;
-    }
-
-    .top-0 {
-      top: 0;
-    }
-
-    .w-border-5 {
-      border: 12px solid white;
-      box-sizing: border-box;
-
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .space-between {
-      justify-content: space-between;
-    }
-
-    .justify-content-c {
-      justify-content: center;
-    }
-
-    .align-content-c {
-      align-content: center;
-      flex-wrap: wrap;
-    }
-
-    .min-w {
-      min-width: 320px;
-    }
-
-    .max-w {
-      max-width: 1440px;
-    }
-
-    .mx-auto {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .button {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 300;
-      font-size: 20px;
-      letter-spacing: 2px;
-
-      color: rgba(255, 255, 255, 0.75);
-      border: solid 0.6px rgba(255, 255, 255, 0.75);
-
-      padding: 7px 10px;
-    }
-
-    .logo {
-      font-family: 'Josefin Sans', sans-serif;
-      color: white;
-      font-size: 96px;
-      word-spacing: 5px;
-    }
-
-    @media only screen and (min-width: 1441px) {
-      body .text-l {
-        font-size: 30px;
-        width: 870px;
-        line-height: 59px;
-      }
-    }
+    @media only screen and (min-width: 1441px) {}
 
     @media only screen and (max-width: 768px) {
       .logo {
@@ -190,14 +69,6 @@
         height: 0.1px;
         opacity: 1;
       }
-
-      body .text-l {
-        margin-left: 40px;
-        margin-right: 40px;
-
-        letter-spacing: 2px;
-        line-height: 30px;
-      }
     }
 
     @media only screen and (max-width: 424px) {
@@ -212,52 +83,171 @@
       .scale-down-20 {
         transform: scale(0.6);
       }
+    }
 
-      body .text-l {
-        margin-left: 15px;
-        margin-right: 15px;
 
-        letter-spacing: 1px;
-        line-height: 23px;
-      }
+
+    .svw-full {
+      width: 100svw;
+    }
+
+    .svh-full {
+      height: 100svh;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .o-hidden {
+      overflow: hidden;
     }
 
     .block {
       display: block;
     }
 
-    .text-l {
+    .absolute {
+      position: absolute;
+    }
+
+    .relative {
+      position: relative;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .space-between {
+      justify-content: space-between;
+    }
+
+    .justify-content-c {
+      justify-content: center;
+    }
+
+    .align-content-c {
+      align-content: center;
+      flex-wrap: wrap;
+    }
+
+    .z-5 {
+      z-index: -5;
+    }
+
+    .z-4 {
+      z-index: -4;
+    }
+
+    .z-0 {
+      z-index: 0;
+    }
+
+    .top-0 {
+      top: 0;
+    }
+
+    .border-box {
+      box-sizing: border-box;
+    }
+
+    .min-w {
+      min-width: 320px;
+    }
+
+    .max-w {
+      max-width: 1440px;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .font-josefin {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    .font-raleway {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .font-lora {
       font-family: Lora;
+    }
+
+    .font-light {
+      font-weight: 300;
+    }
+
+    .font-medium {
       font-weight: 500;
-      /* font-size: 30px; */
-      font-size: calc(5px + 1.73vw);
+    }
 
-      text-align: center;
-      letter-spacing: 3px;
-      line-height: 5vw;
+    .font-semi-bold {
+      font-weight: 600;
+    }
 
+    .c-white {
+      color: white;
+    }
+
+    .c-chocolate {
       color: #3F3735;
-      width: 870px;
+    }
 
-      margin-left: 100px;
-      margin-right: 100px;
+    .c-ochre {
+      color: #87674f;
+    }
+
+    .bc-white {
+      border-color: white;
+    }
+
+    .opacity-75 {
+      opacity: 75%;
+    }
+
+    .hero-bg {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .border-white-12 {
+      border: 12px solid white;
+    }
+
+    .button-l {
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 7px 10px;
+
+      border-style: solid;
+      border-width: 0.6px;
+    }
+
+    .logo-l {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 96px;
+      word-spacing: 5px;
+    }
+
+    .text-l {
+      font-size: clamp(10px, 1.7778vw * 1.5, 32px);
+      letter-spacing: 3px;
     }
 
     .border-black {
       border: solid black 1px;
     }
 
-    @keyframes downPointer {
 
-      0%,
-      100% {
-        top: 6%
-      }
-
-      50% {
-        top: 50%
-      }
-    }
+    /* Down pointer */
 
     .down-pointer {
       height: 50px;
@@ -277,6 +267,20 @@
 
       animation: downPointer 3s ease 0s infinite normal forwards;
     }
+
+    @keyframes downPointer {
+
+      0%,
+      100% {
+        top: 6%
+      }
+
+      50% {
+        top: 50%
+      }
+    }
+
+    /* Burger */
 
     .burger {
       cursor: pointer;
@@ -332,7 +336,7 @@
 
       margin-left: 38px;
       padding-left: 100px;
-      */
+
     }
   </style>
 </head>
@@ -344,7 +348,7 @@
       <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
         style="background-image: url(images/background-living-room.jpg);">
       </div>
-      <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 w-border-5 min-w"
+      <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 border-white-12 min-w border-box"
         style="background-image: url(images/dark-overlay.svg);"></div>
     </div>
 
@@ -358,19 +362,27 @@
           <a href="">About us</a>
           <a href="">Contact</a>
         </nav> -->
-        <button class="button" style="margin-right: 38px;">Book now</button>
+        <button class="button-l font-raleway font-light c-white bc-white opacity-75"
+          style="margin-right: 38px; opacity: 75%;">Book now</button>
       </header>
       <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
-        <p class="logo" style="margin-bottom: 150px;">NA STOPE</p>
+        <p class="logo-l c-white" style="margin-bottom: 150px;">NA STOPE</p>
       </div>
       <div class="down-pointer relative mx-auto" style="top: -120px;"></div>
     </div>
 
     <div class="max-w mx-auto">
-      <section class="flex justify-content-c align-content-c" style="height: 30vw; max-height: 400px;">
-        <p class="text-l" style="">Nestled in the picturesque Ore Mountains, <span
+      <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate" style="min-height: 100px; height: 30vw; max-height: 400px;">
+        <p>Nestled in the picturesque Ore Mountains,</p>
+        <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
+        <p>and beauty of this enchanting region.</p>
+
+        <!-- <p class="text-l font-lora font-medium c-chocolate">Nestled in the picturesque Ore Mountains, <span
             style="color: #87674f; max-width: 845px;">NaStope</span> invites you to experience
-          the serenity and beauty of this enchanting region.</p>
+          the serenity and beauty of this enchanting region.</p> -->
+      </section>
+      <section style="background-color: #87674f; height: 1000px;">
+
       </section>
     </div>
 
