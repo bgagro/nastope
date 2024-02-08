@@ -317,30 +317,20 @@
       height: 20px;
 
       padding-top: 10px;
-
-      background-color: wheat;
     }
 
     .burger::before,
     .burger::after {
       content: "";
       width: inherit;
-      height: 5px;
+      height: 1px;
       position: absolute;
       background-color: rgb(255, 255, 255);
 
       transition: all 250ms ease-out;
     }
 
-    .test::before {
-      content: "";
-      background-color: azure;
-      width: 10px;
-      height: 10px;
-      position: absolute;
-    }
-
-    /* .burger::before {
+    .burger::before {
       transform: translateY(-6.5px);
     }
 
@@ -354,7 +344,7 @@
 
     .active.burger:after {
       transform: translateY(0) rotate(-45deg);
-    } */
+    }
 
     .nav {
       /* font-family: 'Raleway', sans-serif;
@@ -392,9 +382,6 @@
 
     <div class="max-w mx-auto svh-full">
       <header class="flex space-between" style="padding-top: 50px; align-items: center;">
-        <div class="test">
-          <p>this is a test</p>
-        </div>
         <button class="burger z-0" style="margin-left: 38px;"></button>
         <!-- <nav class="nav">
           <a href="">Home</a>
