@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@400;500;600&family=Raleway:wght@200;300;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <style>
@@ -58,16 +58,6 @@
         font-size: 70px;
         padding-top: 20px;
       }
-/* 
-      .burger {
-        width: 37px;
-      } */
-
-      body .burger::before,
-      body .burger::after {
-        width: 30px;
-        height: 0.8px;
-      }
 
       body .button-l {
         font-size: 15px;
@@ -96,6 +86,12 @@
       body .logo-l {
         font-size: 50px;
         padding-top: 30px;
+      }
+
+      body .burger::before,
+      body .burger::after {
+        width: 30px;
+        height: 0.8px;
       }
 
       body .button-l {
@@ -267,6 +263,16 @@
 
       border-style: solid;
       border-width: 0.6px;
+
+      cursor: pointer;
+    }
+
+    .button-l:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .button-l:active {
+      color: black;
     }
 
     .logo-l {
