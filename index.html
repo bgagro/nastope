@@ -15,6 +15,8 @@
     href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
+  <script src="scripts/script.js"></script>
+
   <style>
     html {
       -webkit-font-smoothing: antialiased;
@@ -41,10 +43,6 @@
       cursor: pointer;
     }
 
-    a:hover {
-      opacity: 70%;
-    }
-
     /* 
     ==========================================================================
       Media queries
@@ -53,7 +51,7 @@
 
     @media only screen and (min-width: 1441px) {}
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1000px) {
       body .logo-l {
         font-size: 70px;
         padding-top: 20px;
@@ -63,23 +61,23 @@
         font-size: 15px;
       }
 
-      .down-pointer {
+      body .down-pointer {
         top: -70px;
       }
 
-      .scale-down-20 {
-        transform: scale(0.8);
+      body .nav {
+        font-size: 15px;
       }
 
-      /* body .burger {
-        width: 28px;
+      body .nav a {
+        margin-right: calc(20px);
       }
+    }
 
-      body .burger::before,
-      body .burger::after {
-        height: 0.1px;
-        opacity: 1;
-      } */
+    @media only screen and (max-width: 840px) {
+      body .nav {
+        display: none;
+      }
     }
 
     @media only screen and (max-width: 420px) {
@@ -241,6 +239,10 @@
       border-color: white;
     }
 
+    .bc-choclate {
+      border-color: #3F3735;
+    }
+
     /* 
     ==========================================================================
       Components
@@ -275,15 +277,30 @@
       color: black;
     }
 
+    .button-s {
+      font-size: 10px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border-style: solid;
+      border-width: 1px;
+      padding: 8px 28px;
+    }
+
     .logo-l {
       font-family: 'Josefin Sans', sans-serif;
       font-size: 96px;
-      word-spacing: 5px;
+      letter-spacing: 5px;
     }
 
     .text-l {
       font-size: clamp(10px, 1.7778vw * 1.5, 32px);
       letter-spacing: 3px;
+    }
+
+    .text-s {
+      font-size: 16px;
+      line-height: 30px;
+      letter-spacing: 1px;
     }
 
     .border-black {
@@ -365,75 +382,203 @@
     }
 
     .nav {
-      /* font-family: 'Raleway', sans-serif;
+      font-family: 'Raleway', sans-serif;
       font-weight: 300;
       font-size: 20px;
       letter-spacing: 2px;
 
-      color: rgba(255, 255, 255, 0.75);
+      position: absolute;
+      top: 58px;
+      margin-left: calc(95px + 3vw);
+    }
+
+    .nav a {
+      margin-right: calc(20px + 2.5vw);
+    }
+
+    .nav a:visited {
+      color: rgb(255, 255, 255);
+    }
+
+    .nav.active .item {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .item:nth-child(6) {
+      transition-delay: 0.45s;
+    }
+
+    .item:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    .item:nth-child(4) {
+      transition-delay: 0.35s;
+    }
+
+    .item:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .item:nth-child(2) {
+      transition-delay: 0.25s;
+    }
+
+    .item:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+
+    .item {
+      opacity: 0;
+      pointer-events: none;
+
+      transition: opacity 0.5s ease, top 0.5s ease;
+      transition-delay: 0;
+    }
+
+    .item:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .h-1 {
+      font-size: 30px;
+      letter-spacing: 2px;
+      line-height: 47px;
+    }
+
+
+    .navbar {
+      position: fixed;
+      width: 100%;
 
       display: flex;
       justify-content: space-between;
-      width: 700px;
 
-      /* border: black solid 1px; */
+      transition: all 300ms ease;
+      z-index: 10;
 
-      position: absolute;
+      border: black 1px solid;
+      height: 50px;
+    }
 
-      margin-left: 38px;
-      padding-left: 100px;
+    /* Scroller */
 
+    .navbar.scroll-up {
+      transform: translateY(0);
+    }
+
+    .navbar.scroll-down {
+      transform: translateY(-100%);
     }
   </style>
 </head>
 
 <body>
   <div class="min-w">
-
-    <div class="svw-full svh-full absolute">
-      <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
-        style="background-image: url(images/background-living-room.jpg);">
-      </div>
-      <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 border-white-12 min-w border-box"
-        style="background-image: url(images/dark-overlay.svg);"></div>
-    </div>
-
-    <div class="max-w mx-auto svh-full">
-      <header class="flex space-between" style="padding-top: 50px; align-items: center;">
-        <button class="burger z-0" style="margin-left: 38px;" onclick="this.classList.toggle('active');"></button>
-        <!-- <nav class="nav">
-          <a href="">Home</a>
-          <a href="">Experiences</a>
-          <a href="">Gallery</a>
-          <a href="">About us</a>
-          <a href="">Contact</a>
-        </nav> -->
-        <button class="button-l font-raleway font-light c-white bc-white opacity-75"
-          style="margin-right: 38px; opacity: 75%;">Book now</button>
-      </header>
-      <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
-        <p class="logo-l c-white" style="margin-bottom: 150px;">NA STOPE</p>
-      </div>
-      <div class="down-pointer relative mx-auto"></div>
-    </div>
-
     <div class="max-w mx-auto">
-      <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate"
-        style="min-height: 100px; height: 30vw; max-height: 400px;">
-        <p>Nestled in the picturesque Ore Mountains,</p>
-        <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
-        <p>and beauty of this enchanting region.</p>
-
-        <!-- <p class="text-l font-lora font-medium c-chocolate">Nestled in the picturesque Ore Mountains, <span
-            style="color: #87674f; max-width: 845px;">NaStope</span> invites you to experience
-          the serenity and beauty of this enchanting region.</p> -->
-      </section>
-      <section style="background-color: #87674f; height: 1000px;">
-
-      </section>
+      <div class="navbar max-w">
+        <div style="margin-left: 38px;">Hey</div>
+        <div style="margin-right: 38px;">Hey</div>
+      </div>
     </div>
+    <div class="main">
+      <div class="svw-full svh-full absolute">
+        <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
+          style="background-image: url(images/background-living-room.jpg);">
+        </div>
+        <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 border-white-12 min-w border-box"
+          style="background-image: url(images/dark-overlay.svg);"></div>
+      </div>
+
+      <div class="max-w mx-auto svh-full">
+        <!-- <header class="flex space-between" style="padding-top: 50px; align-items: center;">
+          <button class="burger z-0 menu" style="margin-left: 38px;"
+            onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
+          </button>
+          <nav class="nav z-0">
+            <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
+            <a class="item" href="#">Experiences</a>
+            <a class="item" href="#">Gallery</a>
+            <a class="item" href="#">About us</a>
+            <a class="item" href="#">Contact</a>
+          </nav>
+          <button class="button-l font-raleway font-light c-white bc-white opacity-75"
+            style="margin-right: 38px; opacity: 75%;">Book now</button>
+        </header> -->
 
 
+        <header class="flex space-between" style="padding-top: 50px; align-items: center;">
+          <button class="burger z-0 menu" style="margin-left: 38px;"
+            onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
+          </button>
+          <nav class="nav z-0">
+            <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
+            <a class="item" href="#">Experiences</a>
+            <a class="item" href="#">Gallery</a>
+            <a class="item" href="#">About us</a>
+            <a class="item" href="#">Contact</a>
+          </nav>
+          <button class="button-l font-raleway font-light c-white bc-white opacity-75"
+            style="margin-right: 38px; opacity: 75%;">Book now</button>
+        </header>
+
+
+        <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
+          <p class="logo-l c-white" style="margin-bottom: 150px;">NA STOPE</p>
+        </div>
+        <div class="down-pointer relative mx-auto"></div>
+      </div>
+
+      <div class="max-w mx-auto">
+        <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate"
+          style="min-height: 100px; height: 30vw; max-height: 400px;">
+          <p>Nestled in the picturesque Ore Mountains,</p>
+          <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
+          <p>and beauty of this enchanting region.</p>
+        </section>
+        <!-- <section style="display: flex; justify-content: center;height: 520px;">
+          <div style="min-width: 400px;">
+            <div class="h-1 font-lora c-chocolate" style="text-align: right;margin-top: 43px;margin-bottom: 25px;">
+              <p>An Invitation <br>To Unwind</p>
+            </div>
+            <div class="text-s font-lora c-chocolate" style="max-width: 473px;text-align: right;margin-bottom: 45px;">
+              <p>Discover a tranquil retreat in our well-appointed rooms, each designed with a perfect blend of modern
+                elegance and traditional charm.</p>
+            </div>
+            <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
+              style="display: block;margin-left: auto;">EXPLORE</button>
+  
+          </div>
+          <div style="width: 50px;"></div>
+          <div>
+            <img src="images/medow.png" alt="" style="height: 100%;">
+          </div>
+        </section>
+        <section style="height: 1000px;">
+          <div style="display: flex; justify-content: center;height: 520px;">
+            <div>
+              <img src="images/medow.png" alt="" style="height: 100%;">
+            </div>
+            <div style="width: 50px;"></div>
+            <div style="min-width: 400px;">
+              <div class="h-1 font-lora c-chocolate" style="text-align: left;margin-top: 43px;margin-bottom: 25px;">
+                <p>An Invitation <br>To Unwind</p>
+              </div>
+              <div class="text-s font-lora c-chocolate" style="max-width: 473px;text-align: left;margin-bottom: 45px;">
+                <p>Discover a tranquil retreat in our well-appointed rooms, each designed with a perfect blend of modern
+                  elegance and traditional charm.</p>
+              </div>
+              <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
+                style="display: block;margin-right: auto;">EXPLORE</button>
+  
+            </div>
+          </div>
+          <div class="z-4" style="position: relative;background-color: #EBE1DA; height: 100%;top: -50px;">
+          </div>
+        </section> -->
+      </div>
+    </div>
   </div>
 
   <!-- <script src="" async defer></script> -->
