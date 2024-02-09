@@ -9,17 +9,21 @@ document.addEventListener("DOMContentLoaded", function () {
   main.style.top = headerHeight + "px";
   let lastScroll = 0;
 
-  const scrollThreshold = 200; 
+  const scrollThreshold = window.innerHeight;
 
   window.addEventListener("scroll", () => {
     let currentScroll = window.pageYOffset;
     if (currentScroll > scrollThreshold && currentScroll - lastScroll > 0) {
       header.classList.add("scroll-down");
       header.classList.remove("scroll-up");
+      header.style.backgroundColor = "beige";
     } else {
       // scrolled up -- header show
       header.classList.add("scroll-up");
       header.classList.remove("scroll-down");
+      if (currentScroll <= scrollThreshold) {
+        header.style.backgroundColor = "";
+      }
     }
     lastScroll = currentScroll;
   })
