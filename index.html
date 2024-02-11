@@ -43,6 +43,10 @@
       cursor: pointer;
     }
 
+    a:visited {
+      color: inherit;
+    }
+
     /* 
     ==========================================================================
       Media queries
@@ -146,6 +150,10 @@
       position: relative;
     }
 
+    .fixed {
+      position: fixed;
+    }
+
     .block {
       display: block;
     }
@@ -226,6 +234,18 @@
 
     .font-semi-bold {
       font-weight: 600;
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .font-semi-extrabold {
+      font-weight: 800;
+    }
+
+    .font-semi-black {
+      font-weight: 900;
     }
 
     .opacity-0 {
@@ -376,8 +396,6 @@
     /* ### Navigation ### */
 
     .navbar {
-      position: fixed;
-
       width: 100%;
       height: 100px;
 
@@ -433,7 +451,7 @@
       transform: translateY(0) rotate(-45deg);
     }
 
-    /* ### Links ### */
+    /* ### Nav links ### */
 
     .nav {
       font-family: 'Raleway', sans-serif;
@@ -510,6 +528,14 @@
       transition: opacity 0.5s ease;
     }
 
+    .lang {
+      bottom: 0;
+      right: 0;
+
+      margin-right: 30px;
+      margin-bottom: 30px;
+    }
+
     .h-1 {
       font-size: 30px;
       letter-spacing: 2px;
@@ -520,13 +546,12 @@
 
 <body>
   <div class="min-w">
-    <div class="navbar" style="padding-top: 20px;">
+    <div class="navbar fixed" style="padding-top: 20px;">
       <div class="max-w mx-auto flex space-between align-items-c h-full">
         <button id="burger" class="burger white menu border-box" style="margin-left: 38px;" onclick="toggleNav()">
         </button>
         <nav class="nav">
-          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;"><span
-              class="hover-effect">Home</span></a>
+          <a class="item" href="#"><span class="hover-effect">Home</span></a>
           <a class="item" href="#"><span class="hover-effect">Experiences</span></a>
           <a class="item" href="#"><span class="hover-effect">Gallery</span></a>
           <a class="item" href="#"><span class="hover-effect">About us</span></a>
@@ -542,23 +567,24 @@
       </div>
     </div>
 
+    <div class="fixed lang font-raleway font-bold c-white">
+      <a href="">CZ</a> / <a href="">DE</a> / <a href="">EN</a>
+    </div>
+
     <div class="main">
       <div class="svw-full svh-full absolute z-5">
         <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
-          style="background-image: url(images/background-living-room.jpg);">
+          style="background-image: url(images/background-living-room_2.jpg);">
         </div>
         <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 border-white-12 min-w border-box"
           style="background-image: url(images/dark-overlay.svg);"></div>
       </div>
-
       <div class="max-w mx-auto svh-full">
-
         <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px); padding-top: 90px;">
           <p class="logo-l c-white" style="margin-bottom: 150px;">NA STOPE</p>
         </div>
         <div class="down-pointer relative mx-auto"></div>
       </div>
-
       <div class="max-w mx-auto">
         <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate"
           style="min-height: 100px; height: 30vw; max-height: 400px;">
@@ -566,8 +592,8 @@
           <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
           <p>and beauty of this enchanting region.</p>
         </section>
-        <!-- <section style="display: flex; justify-content: center;height: 520px;">
-          <div style="min-width: 400px;">
+        <section style="display: flex; justify-content: center;height: 520px;">
+          <!-- <div style="min-width: 400px;">
             <div class="h-1 font-lora c-chocolate" style="text-align: right;margin-top: 43px;margin-bottom: 25px;">
               <p>An Invitation <br>To Unwind</p>
             </div>
@@ -582,9 +608,9 @@
           <div style="width: 50px;"></div>
           <div>
             <img src="images/medow.png" alt="" style="height: 100%;">
-          </div>
+          </div> -->
         </section>
-        <section style="height: 1000px;">
+        <!-- <section style="height: 1000px;">
           <div style="display: flex; justify-content: center;height: 520px;">
             <div>
               <img src="images/medow.png" alt="" style="height: 100%;">
@@ -612,7 +638,7 @@
     </div>
   </div>
 
-  <!-- <script src="" async defer></script> -->
+
 </body>
 
 </html>
