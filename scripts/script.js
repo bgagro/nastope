@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navbar.style.top = "0px";
         navbar.style.backgroundColor = "";
 
-        if (scrollTop < scrollThreshold - 800) {
+        if (scrollTop < scrollThreshold) {
           navbar.style.paddingTop = "20px";
         }
 
