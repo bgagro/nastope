@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let lastScrollTop = 0;
   const navbar = document.querySelector(".newnavbar");
-  const burger = document.querySelector('.burger');
-  const bookButton = document.querySelector("#bookButton")
+  const navElement = document.querySelector(".nav");
+  const burger = document.querySelector(".burger");
+  const bookButton = document.querySelector("#bookButton");
+  const navLogo = document.querySelector(".nav-logo");
 
 
   window.addEventListener("scroll", () => {
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // scroll down (disappear)
     if (scrollTop > lastScrollTop && scrollTop > scrollThreshold - 150) {
       navbar.style.top = "-80px";
-      navbar.style.paddingTop = 0; 
+      navbar.style.paddingTop = 0;
 
     } else {
       // scroll up (appear)
@@ -30,7 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
         burger.classList.add("black")
 
         bookButton.style.borderColor = "black";
-        bookButton.style.color = "black";
+        // bookButton.style.color = "black";
+        bookButton.classList.remove("c-white");
+        bookButton.classList.add("c-black");
+
+        bookButton.classList.remove("bg-lightgray");
+        bookButton.classList.add("bg-darkgray");
+        bookButton.classList.remove("active-black");
+        bookButton.classList.add("active-white");
+
+
+        navElement.querySelectorAll("a").forEach(link => {
+          link.style.color = "black";
+        });
+
+        navLogo.style.visibility = "visible";
+
       }
       else {
         // before scroll threashold
@@ -44,8 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
         burger.classList.remove("black")
         burger.classList.add("white")
 
+
+        bookButton.classList.remove("bg-darkgray");
+        bookButton.classList.add("bg-lightgray");
+        bookButton.classList.remove("c-black");
+        bookButton.classList.add("c-white");
+        bookButton.classList.remove("active-white");
+        bookButton.classList.add("active-black");
         bookButton.style.borderColor = "";
-        bookButton.style.color = "";
+
+        navElement.querySelectorAll('a').forEach(link => {
+          link.style.color = "";
+        });
+
+        navLogo.style.visibility = "";
       }
     }
 

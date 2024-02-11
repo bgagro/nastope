@@ -231,6 +231,10 @@
       color: white;
     }
 
+    .c-black {
+      color: black;
+    }
+
     .c-chocolate {
       color: #3F3735;
     }
@@ -273,12 +277,19 @@
       cursor: pointer;
     }
 
-    .button-l:hover {
+    .button-l.bg-lightgray:hover {
       background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .button-l:active {
-      color: black;
+    .button-l.bg-darkgray:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .button-l.active-black:active {
+      color: rgb(0, 0, 0);
+    }
+    .button-l.active-white:active {
+      color: rgb(255, 255, 255);
     }
 
     .button-s {
@@ -346,6 +357,18 @@
       }
     }
 
+    /* ### Navigation ### */
+
+    .newnavbar {
+      position: fixed;
+
+      width: 100%;
+      height: 100px;
+
+      top: 0px;
+      transition: 0.30s ease-in-out;
+    }
+
     /* ### Burger ### */
 
     .burger {
@@ -368,7 +391,7 @@
       transition: all 250ms ease-out;
     }
 
-    .burger.white::before, 
+    .burger.white::before,
     .burger.white::after {
       background-color: rgba(255, 255, 255, 0.8);
     }
@@ -394,6 +417,8 @@
       transform: translateY(0) rotate(-45deg);
     }
 
+    /* ### Links ### */
+
     .nav {
       font-family: 'Raleway', sans-serif;
       font-weight: 300;
@@ -406,10 +431,6 @@
 
     .nav a {
       margin-right: calc(20px + 2.5vw);
-    }
-
-    .nav a:visited {
-      color: rgb(255, 255, 255);
     }
 
     .nav.active .item {
@@ -445,30 +466,36 @@
       opacity: 0;
       pointer-events: none;
 
+      color: rgb(255, 255, 255);
+
       transition: opacity 0.5s ease, top 0.5s ease;
       transition-delay: 0;
     }
 
-    .item:hover {
-      color: rgba(255, 255, 255, 0.5);
+    .hover-effect {
+      opacity: 1;
+    }
+
+    .hover-effect:hover {
+      opacity: 0.3;
+    }
+
+
+    /* ### Nav Logo ### */
+
+    .nav-logo {
+      color: black;
+      font-size: 30px;
+      visibility: hidden;
+
+      letter-spacing: 2px;
+      padding-top: 6px;
     }
 
     .h-1 {
       font-size: 30px;
       letter-spacing: 2px;
       line-height: 47px;
-    }
-
-    .newnavbar {
-      position: fixed;
-
-      width: 100%;
-      height: 100px;
-
-      top: 0px;
-      transition: 0.30s ease-in-out;
-
-      /* background-color: darkblue; */
     }
   </style>
 </head>
@@ -481,34 +508,22 @@
           onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
         </button>
         <nav class="nav">
-          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
-          <a class="item" href="#">Experiences</a>
-          <a class="item" href="#">Gallery</a>
-          <a class="item" href="#">About us</a>
-          <a class="item" href="#">Contact</a>
+          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;"><span
+              class="hover-effect">Home</span></a>
+          <a class="item" href="#"><span class="hover-effect">Experiences</span></a>
+          <a class="item" href="#"><span class="hover-effect">Gallery</span></a>
+          <a class="item" href="#"><span class="hover-effect">About us</span></a>
+          <a class="item" href="#"><span class="hover-effect">Contact</span></a>
         </nav>
-        <button id="bookButton" class="button-l font-raleway font-light c-white bc-white opacity-75"
-          style="margin-right: 38px; opacity: 75%;">Book now</button>
+        <div class="nav-logo font-josefin">NA STOPE</div>
+        <button id="bookButton" class="button-l font-raleway font-light c-white bc-white opacity-75 bg-lightgray active-black"
+          style="margin-right: 38px; opacity: 75%;">
+          Book now
+        </button>
 
       </div>
     </div>
-    <!-- <div class="max-w mx-auto">
-      <div class="navbar max-w flex align-content-c" style="padding:20px 0; align-items: center;">
-        <button class="burger z-0 menu border-box" style="margin-left: 38px;"
-          onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
-        </button>
-        <nav class="nav z-0">
-          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
-          <a class="item" href="#">Experiences</a>
-          <a class="item" href="#">Gallery</a>
-          <a class="item" href="#">About us</a>
-          <a class="item" href="#">Contact</a>
-        </nav>
-        <button id="bookNowButton" class="button-l font-raleway font-light c-white bc-white opacity-75"
-          style="margin-right: 38px; opacity: 75%;">Book now</button>
 
-      </div>
-    </div> -->
     <div class="main">
       <div class="svw-full svh-full absolute z-5">
         <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
@@ -574,7 +589,7 @@
           </div>
         </section> -->
         <section style="height: 5000px;">
-        </section> 
+        </section>
       </div>
     </div>
   </div>
