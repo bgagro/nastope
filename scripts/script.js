@@ -1,10 +1,30 @@
 console.log("js is linked");
 
-document.addEventListener("DOMContentLoaded", () => {
+// const nav = document.querySelector(".nav");
 
+// if (nav.classList.contains("active")) {
+//   // navLogo.style.display = "none";
+//   console.log("click");
+// }
+
+function toggleNav() {
+  document.querySelector(".burger").classList.toggle("active");
+  document.querySelector(".nav").classList.toggle("active");
+
+  if (document.querySelector(".burger").classList.contains("active")) {
+    document.querySelector(".nav-logo").classList.add("opacity-0");
+  } else {
+    setTimeout(() => {
+      document.querySelector(".nav-logo").classList.remove("opacity-0");
+    }, 1000)
+  }
+}
+
+// Navbar animation
+document.addEventListener("DOMContentLoaded", () => {
   let lastScrollTop = 0;
   const navbar = document.querySelector(".newnavbar");
-  const navElement = document.querySelector(".nav");
+  const nav = document.querySelector(".nav");
   const burger = document.querySelector(".burger");
   const bookButton = document.querySelector("#bookButton");
   const navLogo = document.querySelector(".nav-logo");
@@ -42,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bookButton.classList.add("active-white");
 
 
-        navElement.querySelectorAll("a").forEach(link => {
+        nav.querySelectorAll("a").forEach(link => {
           link.style.color = "black";
         });
 
@@ -70,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bookButton.classList.add("active-black");
         bookButton.style.borderColor = "";
 
-        navElement.querySelectorAll('a').forEach(link => {
+        nav.querySelectorAll('a').forEach(link => {
           link.style.color = "";
         });
 
