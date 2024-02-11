@@ -151,6 +151,10 @@
       justify-content: center;
     }
 
+    .align-items-c {
+      align-items: center;
+    }
+
     .align-content-c {
       align-content: center;
       flex-wrap: wrap;
@@ -360,9 +364,18 @@
       width: inherit;
       height: 1px;
       position: absolute;
-      background-color: rgba(255, 255, 255, 0.8);
 
       transition: all 250ms ease-out;
+    }
+
+    .burger.white::before, 
+    .burger.white::after {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .burger.black::before,
+    .burger.black::after {
+      background-color: black;
     }
 
     .burger::before {
@@ -388,7 +401,6 @@
       letter-spacing: 2px;
 
       position: absolute;
-      top: 58px;
       margin-left: calc(95px + 3vw);
     }
 
@@ -447,47 +459,58 @@
       line-height: 47px;
     }
 
-
-    .navbar {
+    .newnavbar {
       position: fixed;
+
       width: 100%;
+      height: 100px;
 
-      display: flex;
-      justify-content: space-between;
+      top: 0px;
+      transition: 0.30s ease-in-out;
 
-      transition: all 300ms ease;
-      z-index: 10;
-
-      border: black 1px solid;
-      height: 50px;
-    }
-
-    /* Scroller */
-
-    .navbar.scroll-up {
-      transform: translateY(0);
-    }
-
-    .navbar.scroll-down {
-      transform: translateY(-100%);
-    }
-
-    .beige-bg {
-      background-color: beige;
+      /* background-color: darkblue; */
     }
   </style>
 </head>
 
 <body>
   <div class="min-w">
-    <div class="max-w mx-auto">
-      <div class="navbar max-w">
-        <div style="margin-left: 38px;">Hey</div>
-        <div style="margin-right: 38px;">Hey</div>
+    <div class="newnavbar" style="padding-top: 20px;">
+      <div class="max-w mx-auto flex space-between align-items-c h-full">
+        <button class="burger white menu border-box" style="margin-left: 38px;"
+          onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
+        </button>
+        <nav class="nav">
+          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
+          <a class="item" href="#">Experiences</a>
+          <a class="item" href="#">Gallery</a>
+          <a class="item" href="#">About us</a>
+          <a class="item" href="#">Contact</a>
+        </nav>
+        <button id="bookButton" class="button-l font-raleway font-light c-white bc-white opacity-75"
+          style="margin-right: 38px; opacity: 75%;">Book now</button>
+
       </div>
     </div>
+    <!-- <div class="max-w mx-auto">
+      <div class="navbar max-w flex align-content-c" style="padding:20px 0; align-items: center;">
+        <button class="burger z-0 menu border-box" style="margin-left: 38px;"
+          onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
+        </button>
+        <nav class="nav z-0">
+          <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
+          <a class="item" href="#">Experiences</a>
+          <a class="item" href="#">Gallery</a>
+          <a class="item" href="#">About us</a>
+          <a class="item" href="#">Contact</a>
+        </nav>
+        <button id="bookNowButton" class="button-l font-raleway font-light c-white bc-white opacity-75"
+          style="margin-right: 38px; opacity: 75%;">Book now</button>
+
+      </div>
+    </div> -->
     <div class="main">
-      <div class="svw-full svh-full absolute">
+      <div class="svw-full svh-full absolute z-5">
         <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
           style="background-image: url(images/background-living-room.jpg);">
         </div>
@@ -496,39 +519,8 @@
       </div>
 
       <div class="max-w mx-auto svh-full">
-        <!-- <header class="flex space-between" style="padding-top: 50px; align-items: center;">
-          <button class="burger z-0 menu" style="margin-left: 38px;"
-            onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
-          </button>
-          <nav class="nav z-0">
-            <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
-            <a class="item" href="#">Experiences</a>
-            <a class="item" href="#">Gallery</a>
-            <a class="item" href="#">About us</a>
-            <a class="item" href="#">Contact</a>
-          </nav>
-          <button class="button-l font-raleway font-light c-white bc-white opacity-75"
-            style="margin-right: 38px; opacity: 75%;">Book now</button>
-        </header> -->
 
-
-        <header class="flex space-between" style="padding-top: 50px; align-items: center;">
-          <button class="burger z-0 menu" style="margin-left: 38px;"
-            onclick="document.querySelector('.nav').classList.toggle('active');this.classList.toggle('active');">
-          </button>
-          <nav class="nav z-0">
-            <a class="item" href="#" onclick="window.scrollTo(0, 0); return false;">Home</a>
-            <a class="item" href="#">Experiences</a>
-            <a class="item" href="#">Gallery</a>
-            <a class="item" href="#">About us</a>
-            <a class="item" href="#">Contact</a>
-          </nav>
-          <button class="button-l font-raleway font-light c-white bc-white opacity-75"
-            style="margin-right: 38px; opacity: 75%;">Book now</button>
-        </header>
-
-
-        <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px);">
+        <div class="flex align-content-c justify-content-c" style="height: calc(100% - 88px); padding-top: 90px;">
           <p class="logo-l c-white" style="margin-bottom: 150px;">NA STOPE</p>
         </div>
         <div class="down-pointer relative mx-auto"></div>
@@ -552,7 +544,7 @@
             </div>
             <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
               style="display: block;margin-left: auto;">EXPLORE</button>
-  
+
           </div>
           <div style="width: 50px;"></div>
           <div>
@@ -575,15 +567,14 @@
               </div>
               <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
                 style="display: block;margin-right: auto;">EXPLORE</button>
-  
+
             </div>
           </div>
           <div class="z-4" style="position: relative;background-color: #EBE1DA; height: 100%;top: -50px;">
           </div>
         </section> -->
         <section style="height: 5000px;">
-
-        </section>
+        </section> 
       </div>
     </div>
   </div>

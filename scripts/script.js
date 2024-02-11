@@ -1,36 +1,58 @@
 console.log("js is linked");
 
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
-  const body = document.body;
-  const header = document.querySelector(".navbar");
-  const main = document.querySelector(".main");
-  const headerHeight = document.querySelector(".navbar").offsetHeight;
-  main.style.top = headerHeight + "px";
-  let lastScroll = 0;
+  let lastScrollTop = 0;
+  const navbar = document.querySelector(".newnavbar");
+  const burger = document.querySelector('.burger');
+  const bookButton = document.querySelector("#bookButton")
 
-  const scrollThreshold = window.innerHeight;
 
   window.addEventListener("scroll", () => {
-    let currentScroll = window.pageYOffset;
-    if (currentScroll > scrollThreshold && currentScroll - lastScroll > 0) {
-      header.classList.add("scroll-down");
-      header.classList.remove("scroll-up");
-      header.style.backgroundColor = "beige";
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollThreshold = document.documentElement.clientHeight;
+
+    // scroll down (disappear)
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold - 150) {
+      navbar.style.top = "-80px";
+      navbar.style.paddingTop = 0; 
+
     } else {
-      // scrolled up -- header show
-      header.classList.add("scroll-up");
-      header.classList.remove("scroll-down");
-      if (currentScroll <= scrollThreshold) {
-        header.style.backgroundColor = "";
+      // scroll up (appear)
+      // after scroll threashold
+      if (scrollTop > scrollThreshold - 100) {
+        navbar.style.backgroundColor = "white";
+        setTimeout(() => {
+          navbar.style.top = "0px";
+        }, 100);
+
+        burger.classList.remove("white")
+        burger.classList.add("black")
+
+        bookButton.style.borderColor = "black";
+        bookButton.style.color = "black";
+      }
+      else {
+        // before scroll threashold
+        navbar.style.top = "0px";
+        navbar.style.backgroundColor = "";
+
+        if (scrollTop < scrollThreshold - 800) {
+          navbar.style.paddingTop = "20px";
+        }
+
+        burger.classList.remove("black")
+        burger.classList.add("white")
+
+        bookButton.style.borderColor = "";
+        bookButton.style.color = "";
       }
     }
-    lastScroll = currentScroll;
-  })
-});
 
+    lastScrollTop = scrollTop;
+  });
 
-
+})
 
 
 console.log("end of script");
