@@ -23,7 +23,7 @@ function toggleNav() {
 // Navbar animation
 document.addEventListener("DOMContentLoaded", () => {
   let lastScrollTop = 0;
-  const navbar = document.querySelector(".newnavbar");
+  const navbar = document.querySelector(".navbar");
   const nav = document.querySelector(".nav");
   const burger = document.querySelector(".burger");
   const bookButton = document.querySelector("#bookButton");
