@@ -44,7 +44,7 @@
     }
 
     a:visited {
-      color: inherit;
+      color: white;
     }
 
     /* 
@@ -113,6 +113,10 @@
 
       body .navbar {
         height: 75px;
+      }
+
+      body .down-pointer {
+        top: -85px;
       }
     }
 
@@ -224,8 +228,20 @@
       font-family: Lora;
     }
 
+    .font-thin {
+      font-weight: 100;
+    }
+
+    .font-extralight {
+      font-weight: 200;
+    }
+
     .font-light {
       font-weight: 300;
+    }
+
+    .font-regular {
+      font-weight: 400;
     }
 
     .font-medium {
@@ -536,7 +552,21 @@
       margin-bottom: 20px;
 
       color: white;
-      /* mix-blend-mode: difference; */
+    }
+
+    /* .lang,
+    .lang a {
+      transition: color 0.3s ease;
+    } */
+
+    .underscore {
+      border-bottom: white solid 1px;
+      display: inline-block;
+      height: 17px;
+    }
+
+    .opacity-2 {
+      opacity: 1;
     }
 
     .h-1 {
@@ -570,8 +600,8 @@
       </div>
     </div>
 
-    <div class="fixed lang font-raleway font-medium c-white">
-      <a href="">CZ</a> / <a href="">DE</a> / <a style="text-decoration: underline;" href="">EN</a>
+    <div class="fixed lang font-raleway font- c-white z-0 font-regular">
+      <a href="">CZ</a> / <a href="">DE</a> / <a class="underscore" href="">EN</a>
     </div>
 
     <div class="main">

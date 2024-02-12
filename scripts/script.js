@@ -1,12 +1,5 @@
 console.log("js is linked");
 
-// const nav = document.querySelector(".nav");
-
-// if (nav.classList.contains("active")) {
-//   // navLogo.style.display = "none";
-//   console.log("click");
-// }
-
 function toggleNav() {
   document.querySelector(".burger").classList.toggle("active");
   document.querySelector(".nav").classList.toggle("active");
@@ -28,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const burger = document.querySelector(".burger");
   const bookButton = document.querySelector("#bookButton");
   const navLogo = document.querySelector(".nav-logo");
+
 
 
   window.addEventListener("scroll", () => {
@@ -101,7 +95,33 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = scrollTop;
   });
 
+  window.addEventListener('scroll', function() {
+    var lang = document.querySelector('.lang');
+    var underscore = document.querySelector('.underscore');
+    var langLinks = document.querySelectorAll('.lang a');
+    var divBottom = lang.offsetTop + lang.clientHeight;
+    var windowHeight = window.innerHeight;
+    var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+    if (divBottom - scrollPosition + 35 < windowHeight) {
+      lang.style.color = 'black';
+      underscore.style.borderColor = 'black';
+      langLinks.forEach((link) => {
+        link.style.color = 'black'; 
+        link.style.borderColor = "black";
+      });
+    } else {
+      lang.style.color = 'white'; 
+      langLinks.forEach((link) => {
+        link.style.color = 'white'; 
+        link.style.borderColor = "white";
+      });
+    }
+  });
+
 })
+
+
 
 
 console.log("end of script");
