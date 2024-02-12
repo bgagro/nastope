@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // scroll down (disappear)
     if (scrollTop > lastScrollTop && scrollTop > scrollThreshold - 150) {
-      navbar.style.top = "-80px";
+      navbar.style.top = "-100px";
       navbar.style.paddingTop = 0;
 
     } else {

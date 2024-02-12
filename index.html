@@ -77,6 +77,11 @@
       body .nav a {
         margin-right: calc(20px);
       }
+
+      body .text-l {
+        /* font-size: clamp(10px, 1.7778vw * 1.5, 32px); */
+        letter-spacing: 3px;
+      }
     }
 
     /* Small tablets */
@@ -88,7 +93,77 @@
       .nav-logo {
         display: none;
       }
+
+      body .h-1 {
+        font-size: 55px;
+        letter-spacing: 3px;
+        line-height: 70px;
+        font-weight: 400;
+      }
+
+      body .button-s {
+        font-size: 18px;
+        border-width: 1.5px;
+        padding: 15px 37px;
+        letter-spacing: 1.5px;
+      }
+
+      body .text-s {
+        line-height: 40px;
+        font-size: 18px;
+      }
+
+      #section1 {
+        /* border: solid black 1px; */
+        flex-direction: column;
+        height: 1150px !important;
+
+        padding-bottom: 30px;
+
+        div:nth-child(1) {
+
+          div:nth-child(1) {
+            margin-top: 0 !important;
+
+            div:nth-child(1) {
+              margin-top: 40px !important;
+              text-align: center !important;
+            }
+
+            div:nth-child(2) {
+              text-align: center !important;
+              padding-left: 0 !important;
+              margin-top: 20px !important;
+              margin-bottom: 40px !important;
+              margin-left: auto !important;
+              margin-right: auto !important;
+              max-width: 520px !important;
+            }
+
+            button {
+              margin-right: auto;
+            }
+          }
+        }
+
+
+        div:nth-child(3) {
+          height: 100%;
+          order: -1;
+
+          div:nth-child(1) {
+            margin: 0 auto !important;
+            max-width: 550px !important;
+          }
+        }
+      }
+
+      #section2 {
+        visibility: hidden;
+      }
+
     }
+
 
     /* Phones */
     @media only screen and (max-width: 420px) {
@@ -303,12 +378,20 @@
       color: #87674f;
     }
 
+    .c-springwood {
+      color: #EBE1DA;
+    }
+
     .bc-white {
       border-color: white;
     }
 
     .bc-choclate {
       border-color: #3F3735;
+    }
+
+    .bc-springwood {
+      background-color: #EBE1DA;
     }
 
     /* 
@@ -342,7 +425,8 @@
     }
 
     .button-l.bg-darkgray:hover {
-      background-color: rgba(0, 0, 0, 0.05);
+      /* background-color: rgba(0, 0, 0, 0.05); */
+      background-color: rgba(135, 103, 79, 0.1);
     }
 
     .button-l.active-black:active {
@@ -362,6 +446,10 @@
       padding: 8px 28px;
     }
 
+    .button-s:hover {
+      background-color: rgba(135, 103, 79, 0.1);
+    }
+
     .logo-l {
       font-family: 'Josefin Sans', sans-serif;
       font-size: 96px;
@@ -370,7 +458,7 @@
 
     .text-l {
       font-size: clamp(10px, 1.7778vw * 1.5, 32px);
-      letter-spacing: 3px;
+      letter-spacing: 4.5px;
     }
 
     .text-s {
@@ -627,56 +715,72 @@
         </div>
         <div class="down-pointer relative mx-auto"></div>
       </div>
+
       <div class="max-w mx-auto">
         <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate"
-          style="min-height: 100px; height: 30vw; max-height: 400px;">
-          <p>Nestled in the picturesque Ore Mountains,</p>
+          style="height: 30vw; max-height: 400px;">
+          <p style="margin-top: 60px;">Nestled in the picturesque Ore Mountains,</p>
           <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
-          <p>and beauty of this enchanting region.</p>
+          <p style="margin-bottom: 80px;">and beauty of this enchanting region.</p>
         </section>
-        <section style="display: flex; justify-content: center;height: 520px;">
-          <!-- <div style="min-width: 400px;">
-            <div class="h-1 font-lora c-chocolate" style="text-align: right;margin-top: 43px;margin-bottom: 25px;">
-              <p>An Invitation <br>To Unwind</p>
-            </div>
-            <div class="text-s font-lora c-chocolate" style="max-width: 473px;text-align: right;margin-bottom: 45px;">
-              <p>Discover a tranquil retreat in our well-appointed rooms, each designed with a perfect blend of modern
-                elegance and traditional charm.</p>
-            </div>
-            <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
-              style="display: block;margin-left: auto;">EXPLORE</button>
 
-          </div>
-          <div style="width: 50px;"></div>
-          <div>
-            <img src="images/medow.png" alt="" style="height: 100%;">
-          </div> -->
-        </section>
-        <!-- <section style="height: 1000px;">
-          <div style="display: flex; justify-content: center;height: 520px;">
-            <div>
-              <img src="images/medow.png" alt="" style="height: 100%;">
-            </div>
-            <div style="width: 50px;"></div>
-            <div style="min-width: 400px;">
-              <div class="h-1 font-lora c-chocolate" style="text-align: left;margin-top: 43px;margin-bottom: 25px;">
+        <section id="section1" class="flex" style="height: 620px;">
+          <div class="w-full flex" style="flex-direction: column;">
+            <div class="" style="margin-top: 65px; margin-bottom: auto;">
+              <div class="h-1 font-lora c-chocolate font-medium" style="text-align: right;">
                 <p>An Invitation <br>To Unwind</p>
               </div>
-              <div class="text-s font-lora c-chocolate" style="max-width: 473px;text-align: left;margin-bottom: 45px;">
+              <div class="text-s font-lora c-chocolate"
+                style="max-width: 473px;text-align: right;margin-left: auto;padding-left: 20px;margin-top: 30px; margin-bottom: 40px;">
                 <p>Discover a tranquil retreat in our well-appointed rooms, each designed with a perfect blend of modern
                   elegance and traditional charm.</p>
               </div>
               <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
-                style="display: block;margin-right: auto;">EXPLORE</button>
-
+                style="display: block;margin-left: auto;">EXPLORE</button>
             </div>
           </div>
-          <div class="z-4" style="position: relative;background-color: #EBE1DA; height: 100%;top: -50px;">
+          <div style="width: 150px;"></div>
+          <div class="w-full">
+            <div class=""
+              style="height: 100%; max-width: 500px;background-image: url('images/medow.png');background-size: cover; background-position: center;margin-right: 39px;">
+            </div>
           </div>
-        </section> -->
-        <section style="height: 5000px; background-color: #87674f;">
+        </section>
+
+        <div style="height: 20px; width: 100%;"></div>
+
+        <section id="section2" style="display: flex; justify-content: center;height: 620px;">
+          <div class=" z-4" style="position: absolute; width: 100%; height: inherit;">
+            <div class="relative bc-springwood" style="top: -150px;width: 100%; height: 135%;"></div>
+          </div>
+          <div class="w-full" style="margin-left: 39px;">
+            <div
+              style="height: 100%; max-width: 500px;background-image: url('images/upstairs-living-room.jpg');background-size: cover; background-position: center; margin-left: auto;">
+            </div>
+          </div>
+          <div style="width: 150px;"></div>
+          <div class=" w-full flex" style="flex-direction: column;">
+            <div class="" style="margin-top: auto; margin-bottom: 50px;">
+              <div class="h-1 font-lora c-chocolate font-medium" style="text-align: left;">
+                <p>Cozy <br>Accommodations</p>
+              </div>
+              <div class="text-s font-lora c-chocolate"
+                style="max-width: 473px;text-align: left;margin-right: auto;padding-right: 20px;margin-top: 30px; margin-bottom: 40px;">
+                <p>Each room is tastefully decorated, providing a warm and inviting atmosphere. Wake up to breathtaking
+                  views of the surrounding mountains, and enjoy the serenity of our location.</p>
+              </div>
+              <button class="button-s c-chocolate font-raleway font-semi-bold bc-choclate"
+                style="display: block;margin-right: auto;">LEARN MORE</button>
+            </div>
+          </div>
         </section>
       </div>
+
+      <div style="height: 300px;"></div>
+
+      <section style="height: 5000px; background-color: #87674f;">
+        hey
+      </section>
     </div>
   </div>
 
