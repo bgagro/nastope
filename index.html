@@ -67,7 +67,7 @@
       }
 
       body .down-pointer {
-        top: -70px;
+        top: -85px;
       }
 
       body .nav {
@@ -87,10 +87,7 @@
     /* Small tablets */
     @media only screen and (max-width: 760px) {
 
-      /* .min-w {
-        min-width: none;
-      } */
-
+      
       body .nav {
         display: none;
       }
@@ -102,7 +99,7 @@
       body .h-1 {
         font-size: 30px;
         letter-spacing: 3px;
-        line-height: 60px;
+        line-height: 45px;
         font-weight: 500;
       }
 
@@ -114,8 +111,18 @@
       }
 
       body .text-s {
-        line-height: 40px;
+        line-height: 38px;
         font-size: 16px;
+      }
+
+      .heading1 {
+        .desktop > p {
+          display: none;
+        }
+
+        .phone {
+          display: block !important;
+        }
       }
 
 
@@ -290,6 +297,10 @@
 
     .block {
       display: block;
+    }
+
+    .none {
+      display: none;
     }
 
     .flex {
@@ -750,7 +761,7 @@
     <div class="main">
       <div class="svw-full svh-full absolute z-5">
         <div class="hero-bg svw-full svh-full o-hidden absolute z-5 top-0 min-w"
-          style="background-image: url(images/background-living-room_2.jpg);">
+          style="background-image: url(images/background-living-room_2.jpg);height: 99.9%;">
         </div>
         <div class="hero-bg svw-full svh-full o-hidden absolute z-4 top-0 border-white-12 min-w border-box"
           style="background-image: url(images/dark-overlay.svg);"></div>
@@ -763,11 +774,16 @@
       </div>
 
       <div class="max-w mx-auto">
-        <section class="flex justify-content-c align-content-c text-l font-lora font-semi-bold c-chocolate"
-          style="height: 30vw; max-height: 400px;">
-          <p style="margin-top: 60px;">Nestled in the picturesque Ore Mountains,</p>
-          <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
-          <p style="margin-bottom: 80px;">and beauty of this enchanting region.</p>
+        <section class="heading1 text-l font-lora font-semi-bold c-chocolate">
+          <div class="desktop flex justify-content-c align-content-c" style="height: 30vw; max-height: 400px;min-height: 200px;">
+            <p style="margin-top: 80px;">Nestled in the picturesque Ore Mountains,</p>
+            <p style="margin: 1vw 0;"><span class="c-ochre">NaStope</span> invites you to experience the serenity</p>
+            <p style="margin-bottom: 120px">and beauty of this enchanting region.</p>
+            <div class="phone none" style="text-align: center;margin: 0 40px;font-size: 14px;line-height: 30px;letter-spacing: 2px;">
+              <p>Nestled in the picturesque Ore Mountains, <span class="c-ochre">NaStope</span> invites you to experience the serenity and beauty of this enchanting region.</p>
+            </div>
+          </div>
+
         </section>
 
         <section id="section1" class="flex" style="height: 620px;">
