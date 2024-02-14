@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollTop = scrollTop;
   });
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     var lang = document.querySelector('.lang');
     var underscore = document.querySelector('.underscore');
     var langLinks = document.querySelectorAll('.lang a');
@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
       lang.style.color = 'black';
       underscore.style.borderColor = 'black';
       langLinks.forEach((link) => {
-        link.style.color = 'black'; 
+        link.style.color = 'black';
         link.style.borderColor = "black";
       });
     } else {
-      lang.style.color = 'white'; 
+      lang.style.color = 'white';
       langLinks.forEach((link) => {
-        link.style.color = 'white'; 
+        link.style.color = 'white';
         link.style.borderColor = "white";
       });
     }
@@ -121,7 +121,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+// Slider 
 
+let counter = 1;
+
+fetch("assets/reviews.json")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(item => {
+
+      const outerDiv = document.createElement("div");
+      outerDiv.setAttribute("class", "review-" + counter + " none");
+      if (counter === 1) {
+        outerDiv.classList.remove("none");
+      }
+
+      const innerDivReview = document.createElement("div");
+      innerDivReview.textContent = item.review;
+      outerDiv.appendChild(innerDivReview);
+
+      const innerDivAuthor = document.createElement("div");
+      innerDivAuthor.textContent = item.author;
+      outerDiv.appendChild(innerDivAuthor);
+
+      document.querySelector(".reviews").appendChild(outerDiv);
+      counter += 1;
+    });
+  })
+  .catch(error => console.log("Error fetching review data: ", error));
+
+
+
+
+// slider
+let index = 1;
+
+function next() {
+
+  const reviewCount = document.querySelector(".reviews").children.length - 1;
+
+  if (index === reviewCount) {
+    currentReview = document.querySelector(".review-" + index);
+    index = 1;
+    nextReview = document.querySelector(".review-" + index);
+
+    currentReview.classList.add("none");
+    nextReview.classList.remove("none");
+  } else {
+    currentReview = document.querySelector(".review-" + index);
+    index += 1;
+    nextReview = document.querySelector(".review-" + index);
+
+    currentReview.classList.add("none");
+    nextReview.classList.remove("none");
+  }
+}
+
+function prev() {
+
+  const reviewCount = document.querySelector(".reviews").children.length - 1;
+
+  if (index === 1) {
+    currentReview = document.querySelector(".review-" + index);
+    index = reviewCount;
+    nextReview = document.querySelector(".review-" + index);
+
+    currentReview.classList.add("none");
+    nextReview.classList.remove("none");
+  } else {
+    currentReview = document.querySelector(".review-" + index);
+    index -= 1;
+    nextReview = document.querySelector(".review-" + index);
+
+    currentReview.classList.add("none");
+    nextReview.classList.remove("none");
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const nextButton = document.querySelector('.next');
+  nextButton.addEventListener('click', next);
+
+  const prevButton = document.querySelector('.prev');
+  prevButton.addEventListener('click', prev);
+
+});
 
 
 console.log("end of script");
