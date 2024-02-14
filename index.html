@@ -704,7 +704,8 @@
       letter-spacing: 2px;
       padding-top: 6px;
 
-      transition: opacity 0.5s ease;
+      transition: opacity 0.5s ease-in-out;
+      /* transition: 0.30s ease-in-out; */
     }
 
     .lang {
@@ -716,11 +717,6 @@
 
       color: white;
     }
-
-    /* .lang,
-    .lang a {
-      transition: color 0.3s ease;
-    } */
 
     .underscore {
       border-bottom: white solid 1px;
@@ -738,8 +734,27 @@
       line-height: 47px;
     }
 
-    
+    .fade-in {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all .3s ease;
+    }
 
+    .fade-in.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-out {
+      opacity: 1;
+      transform: translateX(0px);
+      transition: all .3s ease;
+    }
+
+    .fade-out.show {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
   </style>
 </head>
 
@@ -858,7 +873,7 @@
             <div class="reviews border-black" style="height: 100px;">
               <div>Reviews</div>
             </div>
-            <div class="border-black block my-auto"><a class="next" style="color: black;">next</a></div>
+            <div class="border-black block my-auto z-0"><a class="next" style="color: black;">next</a></div>
           </div>
         </section>
         <div class="" style="height: 300px;"></div>

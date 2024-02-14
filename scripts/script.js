@@ -154,9 +154,37 @@ fetch("assets/reviews.json")
 
 
 // slider
+function fade_out(review_element) {
+  review_element.classList.add("fade-out", "show");
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      review_element.classList.add("none");
+      resolve();
+    }, 300)
+  });
+}
+
+function fade_in(review_element) {
+  review_element.classList.remove("none");
+  review_element.classList.add("fade-in");
+  setTimeout(() => {
+    review_element.classList.add("show");
+  }, 100);
+
+  // setTimeout(() => {
+  //   review_element.classList.add("none");
+  // }, 750);
+}
+
+
 let index = 1;
 
-function next() {
+async function next() {
+
+
+
+
 
   const reviewCount = document.querySelector(".reviews").children.length - 1;
 
@@ -172,8 +200,22 @@ function next() {
     index += 1;
     nextReview = document.querySelector(".review-" + index);
 
-    currentReview.classList.add("none");
-    nextReview.classList.remove("none");
+    await fade_out(currentReview);
+    fade_in(nextReview);
+
+    console.log("hexx");
+
+    // setTimeout(() => {
+    //   nextReview.classList.add("fade-in");
+    //   nextReview.classList.remove("none");
+    //   nextReview.classList.add("show");
+    // }, 600);
+
+    // fade_in(nextReview);
+
+
+    // nextReview.classList.remove("none");
+    // nextReview.classList.add("show");
   }
 }
 
