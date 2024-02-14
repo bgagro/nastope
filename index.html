@@ -12,10 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lora:wght@400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-
-  <script src="scripts/script.js"></script>
 
   <style>
     html {
@@ -448,6 +446,10 @@
       color: #EBE1DA;
     }
 
+    .c-harvestoak {
+      color: #645650;
+    }
+
     .bc-white {
       border-color: white;
     }
@@ -736,7 +738,7 @@
 
     .fade-in {
       opacity: 0;
-      transform: translateX(50px);
+      /* transform: translateX(50px); */
       transition: all .3s ease;
     }
 
@@ -753,7 +755,21 @@
 
     .fade-out.show {
       opacity: 0;
+    }
+
+    .left {
       transform: translateX(-50px);
+    }
+
+    .right {
+      transform: translateX(50px);
+    }
+
+    .reviews div:nth-child(2) {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      font-family: Lora;
     }
   </style>
 </head>
@@ -867,13 +883,22 @@
           </div>
         </section>
         <div class="" style="height: 67px;"></div>
-        <section class="border-black flex align-content-c" style="height: 550px;">
-          <div class="border-black w-full flex space-between">
-            <div class="border-black block my-auto"><a class="prev" style="color: black;">prev</a></div>
-            <div class="reviews border-black" style="height: 100px;">
-              <div>Reviews</div>
+        <section class="flex align-content-c" style="height: 550px;">
+          <div class="w-full flex space-between">
+            <div class="block my-auto">
+              <a class="prev" style="color: black;">
+                <img src="assets/images/left-arrow.svg" width="50" alt="">
+              </a>
             </div>
-            <div class="border-black block my-auto z-0"><a class="next" style="color: black;">next</a></div>
+            <div class="reviews w-full">
+              <div class="flex justify-content-c font-josefin c-harvestoak font-regular"
+                style="font-size: 23px;letter-spacing: 3px;">REVIEWS</div>
+            </div>
+            <div class="block my-auto z-0">
+              <a class="next" style="color: black;">
+                <img src="assets/images/right-arrow.svg" width="50" alt="">
+              </a>
+            </div>
           </div>
         </section>
         <div class="" style="height: 300px;"></div>
@@ -882,13 +907,10 @@
 
 
 
-      <!-- <section style="height: 5000px; background-color: #87674f;">
-        hey
-      </section> -->
     </div>
   </div>
 
-
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>

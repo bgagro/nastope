@@ -1,5 +1,41 @@
 console.log("js is linked");
 
+let clickLock = false;
+let reviewTotal;
+let index = 1;
+
+document.addEventListener("DOMContentLoaded", () => {
+  navAnimation();
+
+  // Review slider
+  dynamicHtml();
+
+  const nextButton = document.querySelector('.next');
+  nextButton.addEventListener('click',() => {
+    clickCooldown(1000, next);
+  });
+
+  const prevButton = document.querySelector('.prev');
+  prevButton.addEventListener('click', () => {
+    clickCooldown(1000, prev);
+  });
+})
+
+
+// Utility functions
+
+// Rate limits how often the action can be called
+function clickCooldown(ms, action) {
+  if (!clickLock) {
+    clickLock = true;
+    action();
+    setTimeout(() => {
+      clickLock = false;
+    }, ms);
+  }
+}
+
+// Navbar animation
 function toggleNav() {
   document.querySelector(".burger").classList.toggle("active");
   document.querySelector(".nav").classList.toggle("active");
@@ -13,8 +49,7 @@ function toggleNav() {
   }
 }
 
-// Navbar animation
-document.addEventListener("DOMContentLoaded", () => {
+function navAnimation() {
   let lastScrollTop = 0;
   const navbar = document.querySelector(".navbar");
   const nav = document.querySelector(".nav");
@@ -118,137 +153,90 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-
-})
-
-// Slider 
-
-let counter = 1;
-
-fetch("assets/reviews.json")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(item => {
-
-      const outerDiv = document.createElement("div");
-      outerDiv.setAttribute("class", "review-" + counter + " none");
-      if (counter === 1) {
-        outerDiv.classList.remove("none");
-      }
-
-      const innerDivReview = document.createElement("div");
-      innerDivReview.textContent = item.review;
-      outerDiv.appendChild(innerDivReview);
-
-      const innerDivAuthor = document.createElement("div");
-      innerDivAuthor.textContent = item.author;
-      outerDiv.appendChild(innerDivAuthor);
-
-      document.querySelector(".reviews").appendChild(outerDiv);
-      counter += 1;
-    });
-  })
-  .catch(error => console.log("Error fetching review data: ", error));
+}
 
 
+// Review slider 
+function dynamicHtml() {
+  let counter = 1;
 
+  fetch("assets/reviews.json")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        const outerDiv = document.createElement("div");
+        outerDiv.setAttribute("class", "review-" + counter + " none");
 
-// slider
-function fade_out(review_element) {
-  review_element.classList.add("fade-out", "show");
+        if (counter === 1) {
+          outerDiv.classList.remove("none");
+        }
+
+        const innerDivReview = document.createElement("div");
+        innerDivReview.textContent = item.review;
+        outerDiv.appendChild(innerDivReview);
+
+        const innerDivAuthor = document.createElement("div");
+        innerDivAuthor.textContent = item.author;
+        outerDiv.appendChild(innerDivAuthor);
+
+        document.querySelector(".reviews").appendChild(outerDiv);
+        counter += 1;
+      });
+      reviewTotal = counter - 1;
+    })
+    .catch(error => console.log("Error fetching review data: ", error));
+}
+
+function fadeOut(reviewElement, direction) {
+  reviewElement.classList.add("fade-out", direction);
+  reviewElement.classList.add("show");
 
   return new Promise(resolve => {
     setTimeout(() => {
-      review_element.classList.add("none");
+      reviewElement.classList.add("none");
+      reviewElement.classList.remove("fade-out", "show", direction)
       resolve();
-    }, 300)
-  });
+    }, 300);
+  })
 }
 
-function fade_in(review_element) {
-  review_element.classList.remove("none");
-  review_element.classList.add("fade-in");
+function fadeIn(reviewElement, direction) {
+  reviewElement.classList.remove("none");
+  reviewElement.classList.add("fade-in", direction);
+
   setTimeout(() => {
-    review_element.classList.add("show");
-  }, 100);
+    reviewElement.classList.add("show");
+  }, 50);
 
-  // setTimeout(() => {
-  //   review_element.classList.add("none");
-  // }, 750);
+  return new Promise(resolve => {
+    setTimeout(() => {
+      reviewElement.classList.remove("fade-in", "show", direction);
+      resolve();
+    }, 350);
+  })
 }
-
-
-let index = 1;
 
 async function next() {
+  currentReview = document.querySelector(".review-" + index);
+  await fadeOut(currentReview, "left");
 
+  index === reviewTotal ? index = 1 : index += 1;
 
+  nextReview = document.querySelector(".review-" + index);
+  await fadeIn(nextReview, "right");
 
-
-
-  const reviewCount = document.querySelector(".reviews").children.length - 1;
-
-  if (index === reviewCount) {
-    currentReview = document.querySelector(".review-" + index);
-    index = 1;
-    nextReview = document.querySelector(".review-" + index);
-
-    currentReview.classList.add("none");
-    nextReview.classList.remove("none");
-  } else {
-    currentReview = document.querySelector(".review-" + index);
-    index += 1;
-    nextReview = document.querySelector(".review-" + index);
-
-    await fade_out(currentReview);
-    fade_in(nextReview);
-
-    console.log("hexx");
-
-    // setTimeout(() => {
-    //   nextReview.classList.add("fade-in");
-    //   nextReview.classList.remove("none");
-    //   nextReview.classList.add("show");
-    // }, 600);
-
-    // fade_in(nextReview);
-
-
-    // nextReview.classList.remove("none");
-    // nextReview.classList.add("show");
-  }
 }
 
-function prev() {
+async function prev() {
+  currentReview = document.querySelector(".review-" + index);
+  await fadeOut(currentReview, "right");
 
-  const reviewCount = document.querySelector(".reviews").children.length - 1;
+  index === 1 ? index = reviewTotal : index -= 1;
 
-  if (index === 1) {
-    currentReview = document.querySelector(".review-" + index);
-    index = reviewCount;
-    nextReview = document.querySelector(".review-" + index);
+  prevReview = document.querySelector(".review-" + index);
+  await fadeIn(prevReview, "left");
 
-    currentReview.classList.add("none");
-    nextReview.classList.remove("none");
-  } else {
-    currentReview = document.querySelector(".review-" + index);
-    index -= 1;
-    nextReview = document.querySelector(".review-" + index);
-
-    currentReview.classList.add("none");
-    nextReview.classList.remove("none");
-  }
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  const nextButton = document.querySelector('.next');
-  nextButton.addEventListener('click', next);
-
-  const prevButton = document.querySelector('.prev');
-  prevButton.addEventListener('click', prev);
-
-});
 
 
 console.log("end of script");
